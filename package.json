@@ -1,0 +1,57 @@
+{
+  "name": "ui",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "/requests/",
+  "dependencies": {
+    "ckeditor": "^4.8.0",
+    "devextreme": "17.2.4",
+    "history": "4.7.2",
+    "immutability-helper": "2.6.4",
+    "jquery": "^3.2.1",
+    "jwt-decode": "^2.2.0",
+    "material-ui": "^1.0.0-beta.27",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^3.0.5",
+    "react-router-redux": "^5.0.0-alpha.6",
+    "react-tap-event-plugin": "^3.0.2",
+    "redbox-react": "^1.5.0",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "8.2.1",
+    "eslint": "^4.15.0",
+    "eslint-config-react-app": "^2.0.1",
+    "eslint-plugin-flowtype": "^2.41.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.5.1",
+    "moment": "^2.20.1",
+    "node-sass": "4.7.2",
+    "npm-run-all": "4.1.2",
+    "react-scripts": "1.1.0",
+    "striptags": "^3.1.1"
+  },
+  "scripts": {
+    "lint": "eslint src",
+    "lint:fix": "npm run lint --fix",
+    "build-css": "node-sass src/ -o src/",
+    "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build-scripts": "npm run build-css && react-scripts build",
+    "build-after": "node after-build.js",
+    "build-prod": "npm run build-scripts && npm run build-after",
+    "build-dev": "REACT_APP_API_HOST=http://localhost:5000/api REACT_APP_API_FILES=http://localhost:5002/api REACT_APP_API_USERS=http://localhost:5003/api REACT_APP_PORTAL_API_HOST=https://portal.xxx.ru/api npm run build-scripts && npm run build-after",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  }
+}

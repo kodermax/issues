@@ -1,0 +1,11 @@
+.table tr {
+  line-height: 15px; }
+
+.table tr td:nth-child(2) {
+  width: 25%; }
+
+.table tr td:nth-child(3) {
+  white-space: nowrap; }
+
+.table tr td:nth-child(4) {
+  white-space: nowrap; }
