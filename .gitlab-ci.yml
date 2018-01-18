@@ -1,0 +1,28 @@
+image: node:wheezy
+before_script:
+  - apt-get -qq update
+  - apt-get -y install rsync
+  - node --version
+  - npm --version  
+  - npm install
+stages:
+  - deploy_dev
+  - deploy_prod
+job_deploy_dev:
+  stage: deploy_dev
+  only:
+    - dev
+  script:
+    - npm run lint
+job_deploy_prod:
+  stage: deploy_prod
+  only:
+    - master
+  script:
+    - npm run lint
+    - npm run build-prod
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - bash deploy_prod.sh

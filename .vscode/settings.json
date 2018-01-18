@@ -1,0 +1,5 @@
+{
+    "vsicons.presets.angular": false,
+    "javascript.validate.enable": true,
+    "flow.enabled": false
+}
